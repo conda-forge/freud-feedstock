@@ -1,0 +1,14 @@
+boost:
+- 1.67.0
+cxx_compiler:
+- toolchain_cxx
+numpy:
+- '1.9'
+pin_run_as_build:
+  boost:
+    max_pin: x.x.x
+  python:
+    min_pin: x.x
+    max_pin: x.x
+python:
+- '2.7'
