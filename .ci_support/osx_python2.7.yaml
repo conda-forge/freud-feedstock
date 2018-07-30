@@ -1,7 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-boost:
-- 1.67.0
 cxx_compiler:
 - toolchain_cxx
 macos_machine:
@@ -11,10 +9,8 @@ macos_min_version:
 numpy:
 - '1.9'
 pin_run_as_build:
-  boost:
-    max_pin: x.x.x
   python:
-    min_pin: x.x
     max_pin: x.x
+    min_pin: x.x
 python:
 - '2.7'
