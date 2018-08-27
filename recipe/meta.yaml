@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "0.9.0" %}
-{% set sha256 = "d51ac395f4e497bdc9761af26ad1a9c2b9cb6a29e644e9adaa04f0913a7979d0" %}
+{% set version = "0.10.0" %}
+{% set sha256 = "f0d00cf5d958b0e3b819ab09ba0433f2fb29b0cdac30879222d49cad7e460e1f" %}
 
 package:
   name: {{ name|lower }}
@@ -13,15 +13,16 @@ source:
 
 build:
   number: 0
+  script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vvv"
   skip: true  # [win]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - cmake
 
   host:
     - python
+    - pip
     - cython
     - tbb
     - numpy
