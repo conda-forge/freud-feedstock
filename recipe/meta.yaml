@@ -25,6 +25,7 @@ requirements:
     - pip
     - cython
     - tbb
+    - tbb-devel
     - numpy
 
   run:
