@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vvv"
   skip: true  # [win]
 
@@ -26,7 +26,7 @@ requirements:
     - cython
     - tbb
     - tbb-devel
-    - numpy
+    - numpy =1.11
 
   run:
     - python
