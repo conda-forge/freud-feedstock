@@ -39,13 +39,13 @@ test:
     - freud
 
 about:
-  home: https://bitbucket.org/glotzer/{{ name }}
+  home: https://github.com/glotzerlab/{{ name }}
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: 'The freud library provides users the ability to analyze generic data from a variety of sources including simulation and experimental data for advanced metrics such as the radial distribution function and various order parameters.'
   doc_url: http://{{ name }}.readthedocs.io/
-  dev_url: https://bitbucket.org/glotzer/{{ name }}
+  dev_url: https://github.com/glotzerlab/{{ name }}
 
 extra:
   recipe-maintainers:
