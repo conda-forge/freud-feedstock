@@ -7,7 +7,7 @@ Package license: BSD 3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: The freud library provides users the ability to analyze generic data from a variety of sources including simulation and experimental data for advanced metrics such as the radial distribution function and various order parameters.
+Summary: The freud Python library provides a simple, flexible, powerful set of tools for analyzing trajectories obtained from molecular dynamics or Monte Carlo simulations. High performance, parallelized C++ is used to compute standard tools such as radial distribution functions, correlation functions, order parameters, and clusters, as well as original analysis methods including potentials of mean force and torque (PMFTs) and local environment matching. The freud library uses NumPy arrays for input and output, enabling integration with the scientific Python ecosystem for many typical materials science workflows.
 
 
 
@@ -70,6 +70,27 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freud-feedstock?branchName=master&jobName=osx&configuration=osx_python3.7" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_cxx_compilervs2008python2.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=335&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freud-feedstock?branchName=master&jobName=win&configuration=win_cxx_compilervs2008python2.7" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_cxx_compilervs2015python3.6</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=335&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freud-feedstock?branchName=master&jobName=win&configuration=win_cxx_compilervs2015python3.6" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_cxx_compilervs2015python3.7</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=335&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/freud-feedstock?branchName=master&jobName=win&configuration=win_cxx_compilervs2015python3.7" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -77,12 +98,11 @@ Current build status
     </td>
   </tr>
   <tr>
-    <td>Windows</td>
+    <td>Linux_ppc64le</td>
     <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
+      <img src="https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg" alt="ppc64le disabled">
     </td>
   </tr>
-![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
 </table>
 
 Current release info
