@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "1.2.2" %}
-{% set sha256 = "53e58f157be07e6fcf90431c19188874c5cba9ac48bffc19f631930d176b6c9d" %}
+{% set version = "2.0.0" %}
+{% set sha256 = "29c6eef2c173c04a14d773ca3b0aaba5b537b2f311d5ccd0b12db218c9cf0239" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,6 @@ source:
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vvv"
-  skip: true  # [win]
 
 requirements:
   build:
@@ -32,7 +31,6 @@ requirements:
     - python
     - tbb
     - {{ pin_compatible('numpy') }}
-    - scipy
 
 test:
   imports:
@@ -43,7 +41,7 @@ about:
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'The freud library provides users the ability to analyze generic data from a variety of sources including simulation and experimental data for advanced metrics such as the radial distribution function and various order parameters.'
+  summary: 'The freud Python library provides a simple, flexible, powerful set of tools for analyzing trajectories obtained from molecular dynamics or Monte Carlo simulations. High performance, parallelized C++ is used to compute standard tools such as radial distribution functions, correlation functions, order parameters, and clusters, as well as original analysis methods including potentials of mean force and torque (PMFTs) and local environment matching. The freud library uses NumPy arrays for input and output, enabling integration with the scientific Python ecosystem for many typical materials science workflows.'
   doc_url: http://{{ name }}.readthedocs.io/
   dev_url: https://github.com/glotzerlab/{{ name }}
 
