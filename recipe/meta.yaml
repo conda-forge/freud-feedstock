@@ -26,7 +26,7 @@ requirements:
     - cython
     - tbb
     - tbb-devel
-    - numpy =1.11
+    - numpy =1.14
 
   run:
     - python
