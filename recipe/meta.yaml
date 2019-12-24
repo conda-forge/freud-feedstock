@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.0.1" %}
-{% set sha256 = "9fa803a6e7ae26dc8fb2e5717f1ee6aa09376c289eab3c0ce9d44352aeaed9b6" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "91af66ef20ce9b287b775d2fb0fa7c80990bbb6a362a963a375adae26eaf4d77" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv"
   skip: true  # [py<35]
 
