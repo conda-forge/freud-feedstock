@@ -14,18 +14,19 @@ source:
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv"
+  skip: true  # [py<35]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
 
   host:
-    - python
+    - python >=3.5
     - pip
     - cython
     - tbb
     - tbb-devel
-    - numpy =1.14
+    - numpy
 
   run:
     - python
