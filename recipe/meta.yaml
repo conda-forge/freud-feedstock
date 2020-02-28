@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.1.0" %}
-{% set sha256 = "91af66ef20ce9b287b775d2fb0fa7c80990bbb6a362a963a375adae26eaf4d77" %}
+{% set version = "2.2.0" %}
+{% set sha256 = "a20e3ea4934c38a3ef42612e7115885757c786201a1c71ccd3ecdf5d33130081" %}
 
 package:
   name: {{ name|lower }}
@@ -26,7 +26,7 @@ requirements:
     - cython
     - tbb
     - tbb-devel
-    - numpy =1.14
+    - numpy
 
   run:
     - python
@@ -39,13 +39,23 @@ test:
     - freud
 
 about:
-  home: https://github.com/glotzerlab/{{ name }}
+  home: https://github.com/glotzerlab/freud
   license: BSD 3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'The freud Python library provides a simple, flexible, powerful set of tools for analyzing trajectories obtained from molecular dynamics or Monte Carlo simulations. High performance, parallelized C++ is used to compute standard tools such as radial distribution functions, correlation functions, order parameters, and clusters, as well as original analysis methods including potentials of mean force and torque (PMFTs) and local environment matching. The freud library uses NumPy arrays for input and output, enabling integration with the scientific Python ecosystem for many typical materials science workflows.'
-  doc_url: http://{{ name }}.readthedocs.io/
-  dev_url: https://github.com/glotzerlab/{{ name }}
+  summary: 'Powerful, efficient particle trajectory analysis in scientific Python.'
+  description: |
+    The freud Python library provides a simple, flexible, powerful set of tools
+    for analyzing trajectories obtained from molecular dynamics or Monte Carlo
+    simulations. High performance, parallelized C++ is used to compute standard
+    tools such as radial distribution functions, correlation functions, order
+    parameters, and clusters, as well as original analysis methods including
+    potentials of mean force and torque (PMFTs) and local environment matching.
+    The freud library uses NumPy arrays for input and output, enabling
+    integration with the scientific Python ecosystem for many typical materials
+    science workflows.
+  doc_url: https://freud.readthedocs.io/
+  dev_url: https://github.com/glotzerlab/freud
 
 extra:
   recipe-maintainers:

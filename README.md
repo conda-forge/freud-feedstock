@@ -7,8 +7,17 @@ Package license: BSD 3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: The freud Python library provides a simple, flexible, powerful set of tools for analyzing trajectories obtained from molecular dynamics or Monte Carlo simulations. High performance, parallelized C++ is used to compute standard tools such as radial distribution functions, correlation functions, order parameters, and clusters, as well as original analysis methods including potentials of mean force and torque (PMFTs) and local environment matching. The freud library uses NumPy arrays for input and output, enabling integration with the scientific Python ecosystem for many typical materials science workflows.
+Summary: Powerful, efficient particle trajectory analysis in scientific Python.
 
+The freud Python library provides a simple, flexible, powerful set of tools
+for analyzing trajectories obtained from molecular dynamics or Monte Carlo
+simulations. High performance, parallelized C++ is used to compute standard
+tools such as radial distribution functions, correlation functions, order
+parameters, and clusters, as well as original analysis methods including
+potentials of mean force and torque (PMFTs) and local environment matching.
+The freud library uses NumPy arrays for input and output, enabling
+integration with the scientific Python ecosystem for many typical materials
+science workflows.
 
 
 Current build status
