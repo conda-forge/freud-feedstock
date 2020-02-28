@@ -21,7 +21,7 @@ requirements:
     - {{ compiler('cxx') }}
 
   host:
-    - python >=3.5
+    - python
     - pip
     - cython
     - tbb
