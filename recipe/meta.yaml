@@ -12,9 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv"
-  skip: true  # [py<35]
 
 requirements:
   build:
@@ -40,7 +39,7 @@ test:
 
 about:
   home: https://github.com/glotzerlab/freud
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
   summary: 'Powerful, efficient particle trajectory analysis in scientific Python.'
