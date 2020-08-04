@@ -22,7 +22,7 @@ requirements:
   host:
     - python
     - pip
-    - cython
+    - cython >=0.29
     - tbb
     - tbb-devel
     - numpy
@@ -32,6 +32,7 @@ requirements:
     - tbb
     - {{ pin_compatible('numpy') }}
     - rowan >=1.2
+    - scipy >=1.1
 
 test:
   imports:
