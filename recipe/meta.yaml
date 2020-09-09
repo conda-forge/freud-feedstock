@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.2.0" %}
-{% set sha256 = "a20e3ea4934c38a3ef42612e7115885757c786201a1c71ccd3ecdf5d33130081" %}
+{% set version = "2.3.0" %}
+{% set sha256 = "af1fc2491309c02caa458cbb8bf6d6810b50f27d3fe63900f3094b397bc522ff" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/f/freud-analysis/freud-analysis-{{ version }}.tar.gz
+  url: https://github.com/glotzerlab/{{ name }}/releases/download/v{{ version }}/{{ name }}-v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
 
 requirements:
   build:
@@ -32,6 +32,7 @@ requirements:
     - tbb
     - {{ pin_compatible('numpy') }}
     - rowan >=1.2
+    - scipy >=1.1
 
 test:
   imports:
@@ -42,7 +43,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Powerful, efficient particle trajectory analysis in scientific Python.'
+  summary: Powerful, efficient particle trajectory analysis in scientific Python.
   description: |
     The freud Python library provides a simple, flexible, powerful set of tools
     for analyzing trajectories obtained from molecular dynamics or Monte Carlo
