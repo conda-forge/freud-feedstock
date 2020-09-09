@@ -32,6 +32,7 @@ requirements:
     - tbb
     - {{ pin_compatible('numpy') }}
     - rowan >=1.2
+    - scipy >=1.1
 
 test:
   imports:
