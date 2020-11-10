@@ -10,6 +10,8 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://github.com/glotzerlab/{{ name }}/releases/download/v{{ version }}/{{ name }}-v{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-win-py38-deprecation.patch
 
 build:
   number: 0
