@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.3.0" %}
-{% set sha256 = "af1fc2491309c02caa458cbb8bf6d6810b50f27d3fe63900f3094b397bc522ff" %}
+{% set version = "2.4.0" %}
+{% set sha256 = "59f4d039e22d1e891c01adacd1e9d513f8538366a0694bcf925ef0bc9a7a597c" %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +22,9 @@ requirements:
   host:
     - python
     - pip
+    - cmake
     - cython
+    - scikit-build
     - tbb
     - tbb-devel
     - numpy
