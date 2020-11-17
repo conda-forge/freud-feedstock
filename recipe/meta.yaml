@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.4.0" %}
-{% set sha256 = "59f4d039e22d1e891c01adacd1e9d513f8538366a0694bcf925ef0bc9a7a597c" %}
+{% set version = "2.4.1" %}
+{% set sha256 = "dbcf3a9a17e117225e466bf6ab17c4a30ed9e201d71e93d0c244de246b46e435" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://github.com/glotzerlab/{{ name }}/releases/download/v{{ version }}/{{ name }}-v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/f/freud-analysis/freud-analysis-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-win-py38-deprecation.patch
 
 build:
   number: 0
@@ -67,3 +65,6 @@ extra:
     - bdice
     - vyasr
     - joaander
+    - tommy-waltmann
+    - kelwang
+    - b-butler
