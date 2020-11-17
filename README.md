@@ -295,7 +295,10 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@b-butler](https://github.com/b-butler/)
 * [@bdice](https://github.com/bdice/)
 * [@joaander](https://github.com/joaander/)
+* [@kelwang](https://github.com/kelwang/)
+* [@tommy-waltmann](https://github.com/tommy-waltmann/)
 * [@vyasr](https://github.com/vyasr/)
 
