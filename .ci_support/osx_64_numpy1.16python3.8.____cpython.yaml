@@ -20,6 +20,10 @@ python:
 - 3.8.* *_cpython
 target_platform:
 - osx-64
+tbb:
+- '2020'
+tbb_devel:
+- '2020'
 zip_keys:
 - - python
   - numpy
