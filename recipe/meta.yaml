@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.4.1" %}
-{% set sha256 = "dbcf3a9a17e117225e466bf6ab17c4a30ed9e201d71e93d0c244de246b46e435" %}
+{% set version = "2.5.0" %}
+{% set sha256 = "263d985842b2adcd7130aaf0880cb45f5a8e33c08fb39161cca26b7c6b97a713" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
 
 requirements:
