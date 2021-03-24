@@ -25,9 +25,9 @@ python:
 target_platform:
 - linux-aarch64
 tbb:
-- '2020'
+- '2021'
 tbb_devel:
-- '2020'
+- '2021'
 zip_keys:
 - - python
   - numpy
