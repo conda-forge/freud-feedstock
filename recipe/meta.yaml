@@ -13,7 +13,7 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv --install-option="-- ${CMAKE_ARGS}"
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv --install-option="-- ${CMAKE_ARGS} -- VERBOSE=1"
 
 requirements:
   build:
