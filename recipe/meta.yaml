@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
+  number: 1
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv -- ${CMAKE_ARGS}
 
 requirements:
   build:
