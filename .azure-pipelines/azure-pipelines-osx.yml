@@ -41,3 +41,5 @@ jobs:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
       FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
       STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
+  - publish: /Users/runner/miniforge3/conda-bld/osx-arm64
+    artifact: testing
