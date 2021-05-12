@@ -12,4 +12,8 @@ echo "CFLAGS=${CFLAGS}"
 echo "CXXFLAGS=${CXXFLAGS}"
 
 export CMAKE_PREFIX_PATH=${PREFIX}
-${PYTHON} setup.py install -- ${CMAKE_ARGS} -DNumPy_INCLUDE_DIR=${SP_DIR}/numpy/core/include
+
+ls -lR ${SP_DIR}/numpy/core/include
+
+${PYTHON} setup.py install -- ${CMAKE_ARGS}
+#-DNumPy_INCLUDE_DIR=${SP_DIR}/numpy/core/include
