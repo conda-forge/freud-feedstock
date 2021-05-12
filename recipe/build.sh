@@ -12,4 +12,4 @@ echo "CFLAGS=${CFLAGS}"
 echo "CXXFLAGS=${CXXFLAGS}"
 
 export CMAKE_PREFIX_PATH=${PREFIX}
-${PYTHON} setup.py install -- ${CMAKE_ARGS} -DNumPy_INCLUDE_DIR=${SP_DIR}/numpy/core/include -DCYTHON_EXECUTABLE=$BUILD_PREFIX/bin/cython -DPYTHON_EXECUTABLE=$BUILD_PREFIX/bin/python3
+${PYTHON} setup.py install -- ${CMAKE_ARGS} -DNumPy_INCLUDE_DIR=${SP_DIR}/numpy/core/include
