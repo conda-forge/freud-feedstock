@@ -13,7 +13,8 @@ source:
 
 build:
   number: 1
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv --install-option="-- ${CMAKE_ARGS} -- VERBOSE=1"
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv --install-option="-- ${CMAKE_ARGS}" # [win]
+  script: bash ${RECIPE_DIR}/build_hoomd.sh # [not win]
 
 requirements:
   build:
@@ -21,6 +22,7 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - scikit-build                           # [build_platform != target_platform]
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
