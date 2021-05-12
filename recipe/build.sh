@@ -13,7 +13,10 @@ echo "CXXFLAGS=${CXXFLAGS}"
 
 export CMAKE_PREFIX_PATH=${PREFIX}
 
-ls -lR ${SP_DIR}/numpy/core/include
+ls -lR ${SP_DIR}
 
-${PYTHON} setup.py install -- ${CMAKE_ARGS}
+# Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
+CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=\$PREFIX//g')
+
+${PYTHON} setup.py install -- ${CMAKE_ARGS_FILTERED}
 #-DNumPy_INCLUDE_DIR=${SP_DIR}/numpy/core/include
