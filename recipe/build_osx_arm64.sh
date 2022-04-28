@@ -19,6 +19,9 @@ export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL
 export SKBUILD_CONFIGURE_OPTIONS="${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include"
 
 echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
+echo "numpy include=${SP_DIR/numpy/core/include}"
+
+ls -lR $SP_DIR/numpy/core/include
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
@@ -29,4 +32,4 @@ mv cython.tmp $BUILD_PREFIX/bin/cython
 chmod ugo+rwx $BUILD_PREFIX/bin/cython
 
 echo "### Performing installation"
-$PYTHON -m pip install . --ignore-installed --no-cache-dir -vv
+$PYTHON -m pip install . --ignore-installed --no-cache-dir -vv --no-use-pep517 --no-build-isolation
