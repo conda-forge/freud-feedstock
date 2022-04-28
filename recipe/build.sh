@@ -16,7 +16,12 @@ export CMAKE_PREFIX_PATH=${PREFIX}
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 
+# work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python" and is therefore intepreted
+# as a shell script. CONDA_VERSION is unused in skbuild and freud.
 echo "#######################################"
+echo '#!/bin/sh\necho Cython version 0.29.28' > $BUILD_PREFIX/bin/cython
+chmod ugo+rx $BUILD_PREFIX/bin/cython
+
 cat $BUILD_PREFIX/bin/cython
 $BUILD_PREFIX/bin/cython --version
 
