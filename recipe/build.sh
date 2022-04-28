@@ -14,11 +14,18 @@ echo "CXXFLAGS=${CXXFLAGS}"
 export CMAKE_PREFIX_PATH=${PREFIX}
 
 echo "################ testing ########################"
-echo ${${BUILD_PREFIX}}
+which python
+
+echo $BUILD_PREFIX
 
 ls $BUILD_PREFIX
 
 ls '$BUILD_PREFIX'
+
+echo '#!\$BUILD_PREFIX/bin/python' > test.sh
+echo 'print("Hello")' >> test.sh
+chmod u+rwx test.sh
+./test.sh
 
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
