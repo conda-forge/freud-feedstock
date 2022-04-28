@@ -15,7 +15,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [not win]
 
 requirements:
   build:
@@ -26,12 +26,13 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
-    - scikit-build
+    - scikit-build                           # [build_platform != target_platform]
 
   host:
     - python
     - pip
     - cython
+    - scikit-build                           # [build_platform == target_platform]
     - tbb
     - tbb-devel
     - numpy
