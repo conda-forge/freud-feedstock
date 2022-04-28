@@ -18,10 +18,20 @@ CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
-echo "#######################################"
+echo "### cat $BUILD_PREFIX/bin/cython"
 cat $BUILD_PREFIX/bin/cython
-sed 's/\$BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython > $BUILD_PREFIX/bin/cython
+
+echo "### Running sed
+sed 's/\$BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython
+sed 's/\$BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython > cython.tmp
+mv cython.tmp $BUILD_PREFIX/cython
+chmod ugo+rwx $BUILD_PREFIX/cython
+
+echo "### cat $BUILD_PREFIX/bin/cython"
 cat $BUILD_PREFIX/bin/cython
+
+echo "### cython --version"
 $BUILD_PREFIX/bin/cython --version
 
+echo "### Performing installation"
 ${PYTHON} setup.py install --root=/ --single-version-externally-managed -- ${CMAKE_ARGS_FILTERED}
