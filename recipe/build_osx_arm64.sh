@@ -16,12 +16,12 @@ export CMAKE_PREFIX_PATH=${PREFIX}
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 # Explicitly set the numpy include directory.
-export SKBUILD_CONFIGURE_OPTIONS="${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include"
+# export SKBUILD_CONFIGURE_OPTIONS="${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include"
 
-echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
-echo "numpy include=${SP_DIR/numpy/core/include}"
+# echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
+# echo "numpy include=${SP_DIR/numpy/core/include}"
 
-ls -lR $PREFIX/lib
+# ls -lR $PREFIX/lib
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
