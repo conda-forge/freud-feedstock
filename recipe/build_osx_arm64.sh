@@ -21,11 +21,7 @@ export SKBUILD_CONFIGURE_OPTIONS="${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_D
 echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
 echo "numpy include=${SP_DIR/numpy/core/include}"
 
-ls -l $SP_DIR
-echo "######"
-ls -l $SP_DIR/numpy
-echo "######"
-ls -lR $SP_DIR/numpy/core/include
+ls -lR $PREFIX/lib
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
