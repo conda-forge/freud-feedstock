@@ -16,7 +16,7 @@ export CMAKE_PREFIX_PATH=${PREFIX}
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 # Explicitly set the numpy include directory.
-export SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include
+export SKBUILD_CONFIGURE_OPTIONS="${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include"
 
 echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
 
