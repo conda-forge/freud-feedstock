@@ -17,22 +17,22 @@ echo "################ testing ########################"
 which python
 
 echo $BUILD_PREFIX
+tmp_var=$BUILD_PREFIX
+echo $tmp_var
 
 ls $BUILD_PREFIX
 
-ls '$BUILD_PREFIX'
 
-echo '#!\$BUILD_PREFIX/bin/python' > test.sh
-echo 'print("Hello")' >> test.sh
-chmod u+rwx test.sh
-./test.sh
+echo "################ testing ########################"
+set
 
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
+# BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
 # echo "#######################################"
-# echo '#!/bin/sh' > $BUILD_PREFIX/bin/cython
+sed 's/.*BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython > $BUILD_PREFIX/bin/cython
 
 cat $BUILD_PREFIX/bin/cython
 $BUILD_PREFIX/bin/cython --version
