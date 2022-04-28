@@ -7,9 +7,11 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/f/freud-analysis/freud-analysis-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+#  fn: {{ name }}-{{ version }}.tar.gz
+#  url: https://pypi.io/packages/source/f/freud-analysis/freud-analysis-{{ version }}.tar.gz
+#  sha256: {{ sha256 }}
+  git_url: https://github.com/glotzerlab/freud
+  git_rev: cmake-updates
 
 build:
   number: 0
@@ -24,12 +26,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
+    - scikit-build
 
   host:
     - python
     - pip
     - cython
-    - scikit-build
     - tbb
     - tbb-devel
     - numpy
