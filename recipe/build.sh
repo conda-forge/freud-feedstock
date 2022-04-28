@@ -23,9 +23,9 @@ cat $BUILD_PREFIX/bin/cython
 
 echo "### Adding fixed shebang to cython"
 echo '#!/usr/bin/python' > cython.tmp
-cat $BUILD_PREFIX/cython >> cython.tmp
-mv cython.tmp $BUILD_PREFIX/cython
-chmod ugo+rwx $BUILD_PREFIX/cython
+cat $BUILD_PREFIX/bin/cython >> cython.tmp
+mv cython.tmp $BUILD_PREFIX/bin/cython
+chmod ugo+rwx $BUILD_PREFIX/bin/cython
 
 echo "### cat $BUILD_PREFIX/bin/cython"
 cat $BUILD_PREFIX/bin/cython
