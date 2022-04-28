@@ -15,7 +15,7 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [not win]
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [win]
 
 requirements:
   build:
