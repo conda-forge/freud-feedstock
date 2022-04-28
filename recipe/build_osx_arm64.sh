@@ -18,6 +18,8 @@ export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL
 # Explicitly set the numpy include directory.
 export SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS} -DNumPy_INCLUDE_DIR=$SP_DIR/numpy/core/include
 
+echo "SKBUILD_CONFIGURE_OPTIONS=${SKBUILD_CONFIGURE_OPTIONS}"
+
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
 echo "### Adding fixed shebang to cython"
