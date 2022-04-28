@@ -14,25 +14,15 @@ echo "CXXFLAGS=${CXXFLAGS}"
 export CMAKE_PREFIX_PATH=${PREFIX}
 
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
-export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
+# export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
-echo "### cat $BUILD_PREFIX/bin/cython"
-cat $BUILD_PREFIX/bin/cython
-
 echo "### Adding fixed shebang to cython"
 echo '#!/usr/bin/env python' > cython.tmp
 cat $BUILD_PREFIX/bin/cython >> cython.tmp
 mv cython.tmp $BUILD_PREFIX/bin/cython
 chmod ugo+rwx $BUILD_PREFIX/bin/cython
 
-echo "### cat $BUILD_PREFIX/bin/cython"
-cat $BUILD_PREFIX/bin/cython
-
-echo "### cython --version"
-$BUILD_PREFIX/bin/cython --version
-
 echo "### Performing installation"
-# ${PYTHON} setup.py install --root=/ --single-version-externally-managed
 $PYTHON -m pip install . --ignore-installed --no-cache-dir -vv
