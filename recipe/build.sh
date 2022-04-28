@@ -21,9 +21,9 @@ CMAKE_ARGS_FILTERED=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]
 echo "### cat $BUILD_PREFIX/bin/cython"
 cat $BUILD_PREFIX/bin/cython
 
-echo "### Running sed"
-sed 's/\$BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython
-sed 's/\$BUILD_PREFIX.*/\/usr\/bin\/env python/g' $BUILD_PREFIX/bin/cython > cython.tmp
+echo "### Adding fixed shebang to cython"
+echo '#!/usr/bin/python' > cython.tmp
+cat $BUILD_PREFIX/cython >> cython.tmp
 mv cython.tmp $BUILD_PREFIX/cython
 chmod ugo+rwx $BUILD_PREFIX/cython
 
