@@ -26,6 +26,3 @@ chmod ugo+rwx $BUILD_PREFIX/bin/cython
 
 echo "### Performing installation"
 $PYTHON -m pip install . --ignore-installed --no-cache-dir -vv
-
-echo "### Running otool on util.so"
-otool -L _skbuild/**/cmake-install/freud/util*
