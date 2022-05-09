@@ -46,8 +46,19 @@ requirements:
     - scipy >=1.1
 
 test:
+  requires:
+    - pytest
+    - matplotlib
+    - garnett
+    - ase
+    - gsd
+    - sympy
   imports:
     - freud
+  source_files:
+    - tests
+  commands:
+    - python3 -m  pytest tests -v
 
 about:
   home: https://github.com/glotzerlab/freud
