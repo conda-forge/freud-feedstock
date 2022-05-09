@@ -58,7 +58,7 @@ test:
   source_files:
     - tests
   commands:
-    - python3 -m  pytest tests -v
+    - python -m  pytest tests -v
 
 about:
   home: https://github.com/glotzerlab/freud
