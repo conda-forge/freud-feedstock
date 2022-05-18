@@ -57,7 +57,8 @@ test:
     - tests
   commands:
     # tests fail on aarch64: https://github.com/glotzerlab/freud/issues/961
-    - python -m  pytest tests -v  # [not aarch64 and not ppc64le]
+    # tests are not present in the pypi tarball
+    # - python -m  pytest tests -v  # [not aarch64 and not ppc64le]
 
 about:
   home: https://github.com/glotzerlab/freud
