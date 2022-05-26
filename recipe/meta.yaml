@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.9.0" %}
-{% set sha256 = "a998936b60a6d00519d91efc3ae74944c91c6d1c7242b2e88b295a839b25b2a6" %}
+{% set version = "2.10.0" %}
+{% set sha256 = "a61818ed5e23d01aa7b9cbfb0ebf4603fc01b4921c2493f0fa24e78d427947b3" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,8 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
+  script: bash ${RECIPE_DIR}/build_osx_arm64.sh  # [target_platform == 'osx-arm64']
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [target_platform != 'osx-arm64']
 
 requirements:
   build:
@@ -24,10 +25,11 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
+    - scikit-build                           # [build_platform != target_platform]
 
   host:
     - python
-    - pip
+    - pip <22.1
     - cython
     - scikit-build
     - tbb
@@ -42,8 +44,22 @@ requirements:
     - scipy >=1.1
 
 test:
+  requires:
+    - pytest
+    - matplotlib
+    - garnett
+    - ase
+    - gsd
+    - sympy
   imports:
     - freud
+
+  # tests are not present in the pypi tarball
+  # source_files:
+  #   - tests
+  # commands:
+    # tests fail on aarch64: https://github.com/glotzerlab/freud/issues/961
+    # - python -m  pytest tests -v  # [not aarch64 and not ppc64le]
 
 about:
   home: https://github.com/glotzerlab/freud
