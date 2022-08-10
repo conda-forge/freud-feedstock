@@ -16,8 +16,11 @@ export CMAKE_PREFIX_PATH=${PREFIX}
 # Filter CMAKE_PREFIX_PATH out of CMAKE_ARGS because scikit-build needs to set it
 export SKBUILD_CONFIGURE_OPTIONS=$(echo $CMAKE_ARGS | sed -e 's/\-DCMAKE_INSTALL_PREFIX\=[^ ]* //g')
 
-# macOS-64 image needs access to C++17 features
-export CXXFLAGS="${CXXFLAGS} -D_LIBCPP_DISABLE_AVAILABILITY"
+# 10.14 required for some C++17 features used in TBB
+MACOSX_DEPLOYMENT_TARGET:  # [osx and x86_64]
+  - "10.14"                # [osx and x86_64]
+MACOSX_SDK_VERSION:        # [osx and x86_64]
+  - "10.14"                # [osx and x86_64]
 
 # work around a bug in conda-forge where the installed cython gets an invalid #! line: "#!$BUILD_PREFIX/bin/python"
 # BUILD_PREFIX appears to be first on the path, so use /usr/bin/env python
