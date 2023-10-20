@@ -30,7 +30,7 @@ requirements:
 
   host:
     - python
-    - pip <22.1
+    - pip
     - cython
     - scikit-build
     - tbb
