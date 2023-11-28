@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "2.13.1" %}
-{% set sha256 = "9c33fa3a8697d2b9309e627008b6d9d791e7b5218b0dbf6ddf95f71010114cf4" %}
+{% set version = "2.13.2" %}
+{% set sha256 = "2406b70a597227516a3658ae768fb23c75e3a05e436905e1a5a7510d3fc974b2" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy']
   script: bash ${RECIPE_DIR}/build_osx_arm64.sh  # [target_platform == 'osx-arm64']
   script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [target_platform != 'osx-arm64']
