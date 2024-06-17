@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "3.0.0" %}
-{% set sha256 = "425a1372da7d94baa075b051554a0da0a263a965a0f5a15c31383dfd30cc536e" %}
+{% set version = "3.1.0" %}
+{% set sha256 = "eeb525ea446cbb5ef64352841e42589630a847bd108c27d236698cea4440fd1d" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/f/freud-analysis/freud-analysis-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/f/freud-analysis/freud_analysis-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   skip: true  # [python_impl == 'pypy']
   script: bash ${RECIPE_DIR}/build_osx_arm64.sh  # [target_platform == 'osx-arm64']
   script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [target_platform != 'osx-arm64']
