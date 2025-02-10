@@ -21,7 +21,7 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
+    - nanobind >=2.0.0                       # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
@@ -32,8 +32,8 @@ requirements:
   host:
     - python
     - pip
-    - cython
-    - scikit-build
+    - nanobind >=2.0.0
+    - scikit-build-core
     - tbb
     - tbb-devel
     - numpy
@@ -56,11 +56,11 @@ test:
     - freud
 
   # tests are not present in the pypi tarball
-  # source_files:
-  #   - tests
-  # commands:
+  source_files:
+    - tests
+  commands:
     # tests fail on aarch64: https://github.com/glotzerlab/freud/issues/961
-    # - python -m  pytest tests -v  # [not aarch64 and not ppc64le]
+    - python -m  pytest tests -v  # [not aarch64 and not ppc64le]
 
 about:
   home: https://github.com/glotzerlab/freud
