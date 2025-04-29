@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "3.2.0" %}
-{% set sha256 = "30798362d827e57362202eef63677d83354a7b881dd1f18f164f863a41361be7" %}
+{% set version = "3.3.1" %}
+{% set sha256 = "fb4a6d80d278ee15c5bd2168f7873ce9600bb936fb1513a61418c18b066129d2" %}
 
 package:
   name: {{ name|lower }}
