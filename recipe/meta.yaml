@@ -1,6 +1,6 @@
 {% set name = "freud" %}
-{% set version = "3.2.0" %}
-{% set sha256 = "30798362d827e57362202eef63677d83354a7b881dd1f18f164f863a41361be7" %}
+{% set version = "3.3.1" %}
+{% set sha256 = "fb4a6d80d278ee15c5bd2168f7873ce9600bb936fb1513a61418c18b066129d2" %}
 
 package:
   name: {{ name|lower }}
@@ -14,8 +14,7 @@ source:
 build:
   number: 0
   skip: true  # [python_impl == 'pypy' or py < 39]
-  script: bash ${RECIPE_DIR}/build_osx_arm64.sh  # [target_platform == 'osx-arm64']
-  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv  # [target_platform != 'osx-arm64']
+  script: {{ PYTHON }} -m pip install . --ignore-installed --no-cache-dir -vv
 
 requirements:
   build:
@@ -43,6 +42,7 @@ requirements:
     - tbb
     - rowan >=1.2
     - scipy >=1.1
+    - parsnip-cif
 
 test:
   requires:
@@ -83,9 +83,10 @@ about:
 
 extra:
   recipe-maintainers:
-    - bdice
-    - vyasr
     - joaander
-    - tommy-waltmann
-    - klywang
-    - b-butler
+    - tcmoore3
+    - SchoeniPhlippsn
+    - DomFijan
+    - janbridley
+    - tfteague
+    - sumitavaumich
