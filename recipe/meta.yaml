@@ -43,6 +43,7 @@ requirements:
     - tbb
     - rowan >=1.2
     - scipy >=1.1
+    - parsnip-cif
 
 test:
   requires:
