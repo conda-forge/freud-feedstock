@@ -5,15 +5,15 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2019
+- vs2022
 numpy:
-- '2.0'
+- '2'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.13.* *_cp313
 python_impl:
 - cpython
 target_platform:
@@ -22,7 +22,3 @@ tbb:
 - '2021'
 tbb_devel:
 - '2021'
-zip_keys:
-- - python
-  - numpy
-  - python_impl
