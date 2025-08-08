@@ -63,7 +63,7 @@ tests:
         - gsd
         - sympy
     files:
-      recipe:
+      source:
         - tests/
 
 about:
