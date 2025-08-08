@@ -10,7 +10,7 @@ package:
   
 source:
   url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
-  sha256: 74e5b71c45df097ddf79c978d2e6b0510d03baf0ac999a90e7797880a895e9ea
+  sha256: f21e450a969ddfd44f196692a139ddabe6c4a198bdf83d90b3ceaa39811eee03
   patches:
     - fixed-seed.patch
 
