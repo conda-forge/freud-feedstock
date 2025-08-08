@@ -3,7 +3,7 @@ About freud-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/freud-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/glotzerlab/freud
+Home: https://glotzerlab.engin.umich.edu/
 
 Package license: BSD-3-Clause
 
@@ -22,7 +22,6 @@ potentials of mean force and torque (PMFTs) and local environment matching.
 The freud library uses NumPy arrays for input and output, enabling
 integration with the scientific Python ecosystem for many typical materials
 science workflows.
-
 
 Current build status
 ====================

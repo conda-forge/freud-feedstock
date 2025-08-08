@@ -1,0 +1,95 @@
+schema_version: 1
+
+context:
+  name: "freud"
+  version: "3.4.0"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+  
+source:
+  url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
+  sha256: f21e450a969ddfd44f196692a139ddabe6c4a198bdf83d90b3ceaa39811eee03
+  patches:
+    - fixed-seed.patch
+
+build:
+  number: 2
+  script:
+    - python -m pip install . --ignore-installed --no-cache-dir --no-deps -vv
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - if: build_platform != target_platform
+      then:
+        - python                                 
+        - cross-python_${{ target_platform }}     
+        - nanobind >=2.0.0                       
+        - numpy                                  
+        - scikit-build                           
+    - if: not win
+      then:
+        - make
+
+  host:
+    - python
+    - pip
+    - nanobind >=2.0.0
+    - scikit-build-core
+    - tbb
+    - tbb-devel
+    - numpy
+
+  run:
+    - python
+    - tbb
+    - rowan >=1.2
+    - scipy >=1.1
+    - parsnip-cif
+
+tests:
+  - script:
+      - python -m  pytest tests -v
+    requirements:
+      run:
+        - pytest
+        - matplotlib
+        - garnett
+        - ase
+        - gsd
+        - sympy
+    files:
+      source:
+        - tests/
+
+about:
+  homepage: https://glotzerlab.engin.umich.edu
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: Powerful, efficient particle trajectory analysis in scientific Python.
+  description: |
+    The freud Python library provides a simple, flexible, powerful set of tools
+    for analyzing trajectories obtained from molecular dynamics or Monte Carlo
+    simulations. High performance, parallelized C++ is used to compute standard
+    tools such as radial distribution functions, correlation functions, order
+    parameters, and clusters, as well as original analysis methods including
+    potentials of mean force and torque (PMFTs) and local environment matching.
+    The freud library uses NumPy arrays for input and output, enabling
+    integration with the scientific Python ecosystem for many typical materials
+    science workflows.
+  documentation: https://freud.readthedocs.io/
+  repository: https://github.com/glotzerlab/freud
+
+extra:
+  recipe-maintainers:
+    - joaander
+    - tcmoore3
+    - SchoeniPhlippsn
+    - DomFijan
+    - janbridley
+    - tfteague
+    - sumitavaumich
