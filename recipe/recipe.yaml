@@ -7,7 +7,7 @@ context:
 package:
   name: ${{ name }}
   version: ${{ version }}
-  
+
 source:
   url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
   sha256: f21e450a969ddfd44f196692a139ddabe6c4a198bdf83d90b3ceaa39811eee03
@@ -15,7 +15,7 @@ source:
     - fixed-seed.patch
 
 build:
-  number: 2
+  number: 3
   script:
     - python -m pip install . --ignore-installed --no-cache-dir --no-deps -vv
 
@@ -26,11 +26,11 @@ requirements:
     - cmake
     - if: build_platform != target_platform
       then:
-        - python                                 
-        - cross-python_${{ target_platform }}     
-        - nanobind >=2.0.0                       
-        - numpy                                  
-        - scikit-build                           
+        - python
+        - cross-python_${{ target_platform }}
+        - nanobind >=2.0.0
+        - numpy
+        - scikit-build
     - if: not win
       then:
         - make
