@@ -2,7 +2,8 @@ schema_version: 1
 
 context:
   name: "freud"
-  version: "3.4.0"
+  version: "3.5.0"
+  minimum_python: "3.12"
 
 package:
   name: ${{ name }}
@@ -10,12 +11,14 @@ package:
 
 source:
   url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
-  sha256: f21e450a969ddfd44f196692a139ddabe6c4a198bdf83d90b3ceaa39811eee03
+  sha256: 4f2986e79931fe3076250c9a096ac44db1da3f948c52493a8024ef39bc04be18
   patches:
-    - fixed-seed.patch
+    - cross-compile-policy.patch
 
 build:
-  number: 3
+  number: 0
+  python:
+    version_independent: true
   script:
     - python -m pip install . --ignore-installed --no-cache-dir --no-deps -vv
 
@@ -26,7 +29,8 @@ requirements:
     - cmake
     - if: build_platform != target_platform
       then:
-        - python
+        - python      ${{ minimum_python }}.*
+        - python-abi3 ${{ minimum_python }}.*
         - cross-python_${{ target_platform }}
         - nanobind >=2.0.0
         - numpy
@@ -36,7 +40,8 @@ requirements:
         - make
 
   host:
-    - python
+    - python      ${{ minimum_python }}.*
+    - python-abi3 ${{ minimum_python }}.*
     - pip
     - nanobind >=2.0.0
     - scikit-build-core

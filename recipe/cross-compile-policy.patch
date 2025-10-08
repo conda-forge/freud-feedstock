@@ -1,0 +1,10 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index fcd1b9c7..77254ea5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,5 @@
+ cmake_minimum_required(VERSION 3.26...4.1)
++cmake_policy(SET CMP0190 OLD)
+ 
+ project(freud)
+ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
