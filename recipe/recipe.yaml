@@ -12,6 +12,8 @@ package:
 source:
   url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
   sha256: 4f2986e79931fe3076250c9a096ac44db1da3f948c52493a8024ef39bc04be18
+  patches:
+    - cross-compile-policy.patch
 
 build:
   number: 0
