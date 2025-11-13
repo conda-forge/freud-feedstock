@@ -15,8 +15,8 @@ docker_image:
 numpy:
 - '2'
 target_platform:
-- linux-ppc64le
+- linux-aarch64
 tbb:
-- '2021'
+- '2022'
 tbb_devel:
-- '2021'
+- '2022'
