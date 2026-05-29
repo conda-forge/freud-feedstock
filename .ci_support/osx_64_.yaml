@@ -21,6 +21,6 @@ numpy:
 target_platform:
 - osx-64
 tbb:
-- '2022'
+- '2023'
 tbb_devel:
-- '2022'
+- '2023'
