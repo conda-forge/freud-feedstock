@@ -70,6 +70,13 @@ tests:
     files:
       source:
         - tests/
+  - requirements:
+      run:
+        - abi3audit
+    script:
+      - if: unix
+        then: abi3audit $SP_DIR/freud/*.abi3.so -s -v --assume-minimum-abi3 3.12
+        else: abi3audit %SP_DIR%/*.pyd -s -v --assume-minimum-abi3 3.12
 
 about:
   homepage: https://glotzerlab.engin.umich.edu
