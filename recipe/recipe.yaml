@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: "freud"
-  version: "3.6.0"
+  version: "3.6.1"
   minimum_python: "3.12"
 
 package:
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://github.com/glotzerlab/${{ name }}/releases/download/v${{ version }}/${{ name }}-v${{ version }}.tar.zst
-  sha256: 800203d97a97b9a9e65f51ec955de8a59f5f35231a115ea05ec3daf2212afc44
+  sha256: 7506559d0f4068ffc71d00d90c7002c40ab89e275793deb78674f2a039821b86
   patches:
     - cross-compile-policy.patch
 
